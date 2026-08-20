@@ -7,6 +7,8 @@ const express = require('express');
 
 const app = express();
 
+const movieCtrl = require('./controllers/movieCtrl');
+
 // Middleware
 const session = require('express-session');
 const MongoStore = require('connect-mongo').MongoStore;
@@ -50,6 +52,11 @@ app.use(isSignedIn);
 app.get('/protected', async (req, res) => {
   res.send(`You are logged in as ${req.session.user.username}`);
 });
+
+//not routes then will be fixed (Movie)
+app.get('/movies', movieCtrl.index);
+
+app.get('/movies/new', movieCtrl.newMovie);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

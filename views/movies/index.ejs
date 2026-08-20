@@ -1,0 +1,10 @@
+<h1>My Movies</h1>
+
+<a href="/movies/new">Add Movie</a>
+
+<% movies.forEach(movie => { %>
+  <h2><%= movie.name %></h2>
+  <p>Status: <%= movie.status %></p>
+  <p>Rating: <%= movie.rating %></p>
+  <p><%= movie.notes %></p>
+<% }) %>
