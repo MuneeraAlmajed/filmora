@@ -18,7 +18,7 @@ A ***personal watchlist-site*** where users can **A**dd, **E**dit, **U**pdate, a
 
 ## WireFrame 
 
-<img src="WireFrame_FilmOra.png" alt="Filmora Wireframe">
+<img src="wireFrame_FilmOra.png" alt="Filmora Wireframe">
 
 ## ERD
 
