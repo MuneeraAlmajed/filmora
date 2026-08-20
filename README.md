@@ -1,6 +1,6 @@
 # FilmOra 🎞️
 A ***personal watchlist-site*** where users can **A**dd, **E**dit, **U**pdate, and **D**elete a movie. User can also add *Rating* and *Status*. 
-<br>
+<br><br>
 <img src="https://media3.giphy.com/media/3o7rc0qU6m5hneMsuc/giphy.gif" width="300" height = "250" border="2" align="center" />
 
 ## User Stories
@@ -15,3 +15,9 @@ A ***personal watchlist-site*** where users can **A**dd, **E**dit, **U**pdate, a
 - As a user, I want to mark the status of the movie: *Watched*,*To watch later*, *Not yet*.
 - As a user, I want to see my watched and unwatched movies separately so that I can manage my watchlist.
 - As a user, I want to search for a movie by title so that I can quickly find it.
+
+## WireFrame 
+
+<img src="WireFrame filmora.png" alt="Filmora Wireframe">
+
+## ERD
