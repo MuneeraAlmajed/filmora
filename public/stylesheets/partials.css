@@ -9,3 +9,60 @@
 #footer{
 
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 60px;
+
+    background-color: #222;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+
+    font-size: 26px;
+    font-weight: bold;
+
+    transition: 0.5s ease;
+}
+
+.logo:hover {
+    color: #f5c518;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.5s ease;
+}
+
+.nav-links a:hover {
+    color: #f5c518;
+}
+
+.nav-signup {
+    background-color: #f5c518;
+    color: #222 !important;
+
+    padding: 10px 18px;
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.nav-signup:hover {
+    background-color: white;
+}
