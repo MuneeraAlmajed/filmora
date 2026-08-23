@@ -21,7 +21,8 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     min: 0,
     max: 5,
-  }
+  }, 
+  
 });
 // initial the model
 

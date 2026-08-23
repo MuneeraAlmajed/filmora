@@ -1,9 +1,12 @@
-const Movie = require('../models/movie');
+const User = require('../models/user');
 
 const index = async(req,res)=>{
     try{
-        const movies = await Movie.find();
-        res.render('movies/index.ejs', {movies});;
+        const user = await User.findById(req.session.user._id);
+
+        res.render('movies/index.ejs', {
+            movies: user.movies
+        });
     }catch(err){
         console.log(err)
             res.redirect('/');
@@ -24,7 +27,11 @@ const newMovie = async(req,res)=>{
 
 const createMovie = async(req,res)=>{
     try{
-        const movie = await Movie.create(req.body);
+        const user = await User.findById(req.session.user._id);
+        
+        user.movies.push(req.body);
+
+        await user.save();
         
         res.redirect('/movies');
     }catch(err){
@@ -35,7 +42,9 @@ const createMovie = async(req,res)=>{
 
 const showMovie = async (req, res) => {
   try {
-    const movie = await Movie.findById(req.params.movieId);
+    const user = await User.findById(req.session.user._id);
+
+    const movie = user.movies.id(req.params.movieId);
 
     res.render('movies/show.ejs', { movie });
   } catch (err) {
@@ -46,7 +55,10 @@ const showMovie = async (req, res) => {
 
 const editMovie = async(req,res)=>{
     try{
-        const movie = await Movie.findById(req.params.movieId);
+        const user = await User.findById(req.session.user._id);
+
+        const movie = user.movies.id(req.params.movieId);
+
         res.render('movies/edit.ejs', {movie});
     
     }catch(err){
@@ -57,11 +69,13 @@ const editMovie = async(req,res)=>{
 
 const updateMovie = async (req, res) => {
   try {
-    const movie = await Movie.findById(req.params.movieId);
+    const user = await User.findById(req.session.user._id);
+
+    const movie = user.movies.id(req.params.movieId);
 
     movie.set(req.body);
 
-    await movie.save();
+    await user.save();
 
     res.redirect(`/movies/${movie._id}`);
   } catch (err) {
@@ -72,13 +86,18 @@ const updateMovie = async (req, res) => {
 
 const deleteMovie = async(req,res)=>{
     try{
-       const movie = await Movie.findByIdAndDelete(req.params.movieId);
+       const user = await User.findById(req.session.user._id);
+
+       const movie = user.movies.id(req.params.movieId);
+
+       movie.deleteOne();
+       
        await movie.save();
        res.redirect(`/movies/${movie._id}`);
 
     }catch(err){
         console.log(err)
-        res.redirect('/movies')
+        res.redirect('/')
     }
 }
 

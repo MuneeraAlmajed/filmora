@@ -17,7 +17,7 @@
     <a href="/views/index.ejs" class="back-home">Back to Home</a>
     
     <form action="/auth/sign-in" method="POST">
-
+      
       <label for="username">Username:</label>
       <input type="text" name="username" id="username" />
 
@@ -27,11 +27,11 @@
       <a href="/auth/sign-up">Don't have an account yet?</a>
 
       <button type="submit" class="auth-button">Sign in</button>
+
+      <p class="auth-link">Don't have an account yet?
+      <a href="/auth/sign-up">Sign Up</a>
+    </p>
+  
     </form>
-
-    </div>
-    </main>
-
-    
   </body>
 </html>
