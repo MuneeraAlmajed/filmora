@@ -3,11 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/partials.css" />
+    <title>Sign Up | FilmOra</title>
   </head>
   <body>
-    <h1>Create a new account!</h1>
-        <a href="/views/index.ejs">Back to Home</a>
+
+    <main class="auth-page">
+
+    <div class="auth-card">
+    
+    <h1>Create Your FilmOra Account!</h1>
+
+    <p>Start building your personal movie collection</p>
+
+    <a href="/views/index.ejs" class="back-home">Back to Home</a>
+
 
     <form action="/auth/sign-up" method="POST">
       <label for="username">Username:</label>
@@ -19,9 +30,15 @@
       <label for="confirmPassword">Confirm Password:</label>
       <input type="password" name="confirmPassword" id="confirmPassword" required />
 
-      <a href="/auth/sign-in">Already have an account?</a>
-
-      <button type="submit">Sign up</button>
+      <button type="submit" class="auth-button">Sign up</button>
     </form>
+
+    <p class="auth-link">Already have an account?
+      <a href="/auth/sign-in">Sign In</a>
+    </p>
+
+  </div>
+  </main>
+
   </body>
 </html>
