@@ -1,10 +1,27 @@
-<h1>My Movies</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+      <link rel="stylesheet" href="/stylesheets/partials.css" />
+  <title>Document</title>
+</head>
+<body>
+  <h1>My Movies</h1>
 
 <a href="/movies/new">Add Movie</a>
 
 <% movies.forEach(movie => { %>
-  <h2><%= movie.name %></h2>
+ <h2>
+<a href="/movies/<%= movie._id %>">
+    <%= movie.title %>
+</a>
+  </h2>
+  <p>Notes: <%= movie.notes %></p>
   <p>Status: <%= movie.status %></p>
   <p>Rating: <%= movie.rating %></p>
-  <p><%= movie.notes %></p>
 <% }) %>
+  
+</body>
+</html>
