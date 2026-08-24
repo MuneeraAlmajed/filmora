@@ -3,25 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="/stylesheets/style.css">
-      <link rel="stylesheet" href="/stylesheets/partials.css" />
-  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/partials.css">
+
+  <title>My Movies</title>
 </head>
+
 <body>
-  <h1>My Movies</h1>
 
-<a href="/movies/new">Add Movie</a>
+  <main class="movies-page">
 
-<% movies.forEach(movie => { %>
- <h2>
-<a href="/movies/<%= movie._id %>">
-    <%= movie.title %>
-</a>
-  </h2>
-  <p>Notes: <%= movie.notes %></p>
-  <p>Status: <%= movie.status %></p>
-  <p>Rating: <%= movie.rating %></p>
-<% }) %>
-  
+    <h1>My Movies</h1>
+
+    <div class="movie-page-actions">
+      <a href="/" class="back-home">Back to Home</a>
+      <a href="/movies/new" class="add-movie">Add Movie</a>
+    </div>
+
+    <div class="movies-grid">
+
+      <% movies.forEach(movie => { %>
+
+        <div class="movie-card">
+
+          <a href="/movies/<%= movie._id %>" class="movie-link">
+
+            <img 
+              src="<%= movie.image %>" 
+              alt="<%= movie.title %>"
+              class="movie-card-poster"
+            >
+
+            <h2><%= movie.title %></h2>
+
+          </a>
+
+          <div class="movie-details">
+
+            <p>
+              <strong>Status:</strong>
+              <%= movie.status %>
+            </p>
+
+            <p>
+              <strong>Rating:</strong>
+              <%= movie.rating %> / 5
+            </p>
+
+            <p>
+              <strong>Notes:</strong>
+              <%= movie.notes %>
+            </p>
+
+          </div>
+
+        </div>
+
+      <% }) %>
+
+    </div>
+
+  </main>
+
 </body>
 </html>

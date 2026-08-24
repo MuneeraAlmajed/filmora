@@ -5,6 +5,9 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+    image: {
+    type: String,
+  },
 
   notes: {
     type: String
