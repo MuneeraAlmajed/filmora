@@ -31,6 +31,30 @@
                     >
                 <% } %>
 
+                <form action="/movies/add" method="POST">
+
+                    <input
+                        type="hidden"
+                        name="imdbID"
+                        value="<%= movie.imdbID %>"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="title"
+                        value="<%= movie.Title %>"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="<%= movie.Poster %>"
+                    >
+
+                    <button type="submit">Add to My Movies</button>
+
+                </form>
+
             </div>
 
         <% }) %>

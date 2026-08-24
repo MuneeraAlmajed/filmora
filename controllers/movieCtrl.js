@@ -127,6 +127,32 @@ const searchMovies = async (req, res) => {
     }
 };
 
+const addNewMovie = async (req, res) => {
+    try {
+        console.log('BODY:', req.body);
+        console.log('USER:', req.session.user._id);
+
+        const user = await User.findById(req.session.user._id);
+
+        console.log('USER FOUND:', user);
+
+        user.movies.push({
+            imdbID: req.body.imdbID,
+            title: req.body.title,
+            image: req.body.image
+        });
+
+        await user.save();
+
+        console.log('MOVIE SAVED:', user.movies[user.movies.length - 1]);
+
+        res.redirect('/movies');
+
+    } catch (err) {
+        console.log('ADD MOVIE ERROR:', err);
+        
+    }
+};
 module.exports = {
-    index, newMovie, createMovie, showMovie, editMovie, updateMovie, deleteMovie,searchMovies,
+    index, newMovie, createMovie, showMovie, editMovie, updateMovie, deleteMovie,searchMovies, addNewMovie,
 }

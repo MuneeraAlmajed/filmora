@@ -26,6 +26,7 @@ const port = process.env.PORT ? process.env.PORT : "3000";
 
 // MIDDLEWARE
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static('public'));
 // Middleware to parse URL-encoded data from forms
 app.use(express.urlencoded({ extended: false }));
 // Middleware for using HTTP verbs such as PUT or DELETE
@@ -57,6 +58,8 @@ app.get("/protected", async (req, res) => {
 app.get('/movies', movieCtrl.index);
 
 app.get('/search', movieCtrl.searchMovies);
+
+app.post('/movies/add', movieCtrl.addNewMovie);
 
 app.get('/movies/new', movieCtrl.newMovie);
 

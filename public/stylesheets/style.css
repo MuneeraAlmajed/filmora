@@ -59,10 +59,15 @@ body {
   margin: 30px auto 0;
   color: #222;
   text-decoration: none;
+  background-color: #222;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    
 }
 
 .back-home:hover {
-  color: #f5c518;
+  background-color: #f5c518;
 }
 
 .auth-page {
@@ -324,6 +329,22 @@ body {
     color: white;
 }
 
+.add-movie:hover{
+      background-color: #f5b301;
+
+}
+
+.back-home-btn{
+  background-color: #222;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  
+  .back-home-btn:hover{
+    background-color: #f5b301;
+  }
 
 .movies-grid {
     display: grid;
@@ -450,7 +471,6 @@ body {
     align-items: center;
     margin-bottom: 40px;
 }
-
 
 
 @keyframes fadeIn {

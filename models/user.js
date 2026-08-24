@@ -29,7 +29,6 @@ const movieSchema = new mongoose.Schema(
 
         imdbID: {
             type: String,
-            required: true,
         },
     },
     { timestamps: true }
