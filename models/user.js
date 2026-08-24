@@ -1,31 +1,39 @@
 const mongoose = require('mongoose');
 
-const movieSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-    image: {
-    type: String,
-  },
+const movieSchema = new mongoose.Schema(
+    {
+        title: {
+            type: String,
+            required: true,
+        },
 
-  notes: {
-    type: String
-  },
+        image: {
+            type: String,
+        },
 
-  status: {
-    type: String,
-    enum: ['To watch','Watched','Not yet', 'Watching'],
-    default: 'Not yet'
-  },
+        notes: {
+            type: String,
+        },
 
-  rating: {
-    type: Number,
-    min: 0,
-    max: 5,
-  }, 
-  
-});
+        status: {
+            type: String,
+            enum: ['To watch', 'Watched', 'Not yet', 'Watching'],
+            default: 'Not yet',
+        },
+
+        rating: {
+            type: Number,
+            min: 0,
+            max: 5,
+        },
+
+        imdbID: {
+            type: String,
+            required: true,
+        },
+    },
+    { timestamps: true }
+);
 
 const userSchema = new mongoose.Schema({
   username: {

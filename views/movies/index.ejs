@@ -16,10 +16,48 @@
 
     <h1>My Movies</h1>
 
+    <form action="/search" method="GET">
+    <input
+        type="text"
+        name="search"
+        placeholder="Search for a movie..."
+        required
+    >
+
+    <button type="submit">Search</button>
+
+    </form>
+
+    <% if (movies && movies.length > 0) { %>
+
+    <h2>Search Results</h2>
+
+    <% movies.forEach(movie => { %>
+
+        <div>
+            <h3><%= movie.Title %></h3>
+
+            <p><%= movie.Year %></p>
+
+            <img 
+                src="<%= movie.Poster %>" 
+                alt="<%= movie.Title %>"
+                width="200"
+            >
+        </div>
+
+    <% }) %>
+
+<% } %>
+
+
+
     <div class="movie-page-actions">
       <a href="/" class="back-home">Back to Home</a>
       <a href="/movies/new" class="add-movie">Add Movie</a>
     </div>
+
+
 
     <div class="movies-grid">
 

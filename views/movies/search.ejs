@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/partials.css">
+    <title>Search Results</title>
+</head>
+
+<body>
+
+    <h1>Search Results</h1>
+
+    <p>Results for: <%= query %></p>
+
+    <% if (movies.length > 0) { %>
+
+        <% movies.forEach(movie => { %>
+
+            <div>
+                <h2><%= movie.Title %></h2>
+
+                <p><%= movie.Year %></p>
+
+                <% if (movie.Poster !== 'N/A') { %>
+                    <img
+                        src="<%= movie.Poster %>"
+                        alt="<%= movie.Title %>"
+                        width="200"
+                    >
+                <% } %>
+
+            </div>
+
+        <% }) %>
+
+    <% } else { %>
+
+        <p>No movies found.</p>
+
+    <% } %>
+
+    <a href="/">Back to Home</a>
+
+</body>
+</html>

@@ -56,6 +56,8 @@ app.get("/protected", async (req, res) => {
 //not routes then will be fixed (Movie)
 app.get('/movies', movieCtrl.index);
 
+app.get('/search', movieCtrl.searchMovies);
+
 app.get('/movies/new', movieCtrl.newMovie);
 
 app.post('/movies', movieCtrl.createMovie);

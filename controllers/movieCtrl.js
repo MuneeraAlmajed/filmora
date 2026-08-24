@@ -4,15 +4,8 @@ const index = async (req, res) => {
     try {
         const user = await User.findById(req.session.user._id);
 
-        const search = req.query.search || '';
-
-        const movies = user.movies.filter(movie =>
-            movie.title.toLowerCase().includes(search.toLowerCase())
-        );
-
         res.render('movies/index.ejs', {
-            movies,
-            search
+            movies: user.movies
         });
 
     } catch (err) {
@@ -54,6 +47,10 @@ const showMovie = async (req, res) => {
     const user = await User.findById(req.session.user._id);
 
     const movie = user.movies.id(req.params.movieId);
+
+    if (!movie) {
+            return res.redirect('/movies');
+        }
 
     res.render('movies/show.ejs', { movie });
   } catch (err) {
@@ -111,6 +108,25 @@ const deleteMovie = async (req, res) => {
     }
 };
 
+const searchMovies = async (req, res) => {
+    try {
+        const response = await fetch(
+            `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${encodeURIComponent(req.query.search)}&type=movie`
+        );
+
+        const data = await response.json();
+
+        res.render('movies/search.ejs', {
+            movies: data.Search || [],
+            query: req.query.search
+        });
+
+    } catch (err) {
+        console.log(err);
+        res.redirect('/');
+    }
+};
+
 module.exports = {
-    index, newMovie, createMovie, showMovie, editMovie, updateMovie, deleteMovie,
+    index, newMovie, createMovie, showMovie, editMovie, updateMovie, deleteMovie,searchMovies,
 }
