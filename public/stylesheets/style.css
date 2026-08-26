@@ -557,7 +557,6 @@ body {
     width: 130px;
 }
 
-/* Flying popcorn */
 .popcorn-piece {
     position: absolute;
     font-size: 28px;
@@ -587,7 +586,7 @@ body {
     right: 40px;
     animation: flyFour 3s infinite ease-out 2.1s;
 }
-/* Floating popcorn */
+
 
 .floating-popcorn {
     position: fixed;
@@ -600,15 +599,12 @@ body {
     height: auto;
 }
 
-/* Left popcorn */
-
 .popcorn-left {
     left: 30px;
     top: 25%;
     animation: floatLeft 4s ease-in-out infinite;
 }
 
-/* Right popcorn */
 
 .popcorn-right {
     right: 30px;
