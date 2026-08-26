@@ -7,8 +7,6 @@ const express = require("express");
 
 const app = express();
 
-const movieCtrl = require("./controllers/movieCtrl");
-
 // Middleware
 const session = require("express-session");
 const MongoStore = require("connect-mongo").MongoStore;
@@ -20,13 +18,14 @@ const addUserToViews = require("./middleware/addUserToViews");
 // Routers
 const authRouter = require("./routes/authRouter");
 const pagesRouter = require("./routes/pagesRouter");
+const movieRouter = require("./routes/movieRouter");
+
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
 
 // MIDDLEWARE
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.static('public'));
 // Middleware to parse URL-encoded data from forms
 app.use(express.urlencoded({ extended: false }));
 // Middleware for using HTTP verbs such as PUT or DELETE
@@ -46,6 +45,7 @@ app.use(addUserToViews);
 // ROUTES
 app.use("", pagesRouter);
 app.use("/auth", authRouter);
+app.use("/movies", movieRouter);
 
 // Customer middleware
 app.use(isSignedIn);
@@ -54,24 +54,6 @@ app.get("/protected", async (req, res) => {
   res.send(`You are logged in as ${req.session.user.username}`);
 });
 
-//not routes then will be fixed (Movie)
-app.get('/movies', movieCtrl.index);
-
-app.get('/search', movieCtrl.searchMovies);
-
-app.post('/movies/add', movieCtrl.addNewMovie);
-
-app.get('/movies/new', movieCtrl.newMovie);
-
-app.post('/movies', movieCtrl.createMovie);
-
-app.get('/movies/:movieId',movieCtrl.showMovie);
-
-app.get('/movies/:movieId/edit',movieCtrl.editMovie);
-
-app.put('/movies/:movieId', movieCtrl.updateMovie);
-
-app.delete('/movies/:movieId', movieCtrl.deleteMovie);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
