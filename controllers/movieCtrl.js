@@ -129,12 +129,7 @@ const searchMovies = async (req, res) => {
 
 const addNewMovie = async (req, res) => {
     try {
-        console.log('BODY:', req.body);
-        console.log('USER:', req.session.user._id);
-
         const user = await User.findById(req.session.user._id);
-
-        console.log('USER FOUND:', user);
 
         user.movies.push({
             imdbID: req.body.imdbID,
@@ -144,12 +139,11 @@ const addNewMovie = async (req, res) => {
 
         await user.save();
 
-        console.log('MOVIE SAVED:', user.movies[user.movies.length - 1]);
-
         res.redirect('/movies');
 
     } catch (err) {
-        console.log('ADD MOVIE ERROR:', err);
+        console.log(err);
+        res.redirect('/');
         
     }
 };

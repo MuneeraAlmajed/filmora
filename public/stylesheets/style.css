@@ -66,9 +66,6 @@ body {
     
 }
 
-.back-home:hover {
-  background-color: #f5c518;
-}
 
 .auth-page {
   min-height: 80vh;
@@ -278,6 +275,10 @@ body {
     margin: 10px;
 }
 
+.movie-actions a:hover{
+  color: #f5b301;
+}
+
 .movie-actions button {
     padding: 10px 20px;
     border: none;
@@ -285,6 +286,7 @@ body {
     cursor: pointer;
     font-size: 15px;
 }
+
 
 .rating {
     margin-top: 15px;
@@ -340,11 +342,14 @@ body {
     padding: 10px 18px;
     border-radius: 6px;
     text-decoration: none;
+    text-align: center;
   }
+
   
   .back-home-btn:hover{
     background-color: #f5b301;
   }
+
 
 .movies-grid {
     display: grid;
@@ -472,6 +477,266 @@ body {
     margin-bottom: 40px;
 }
 
+.search-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+}
+.search-btn:hover{
+  color:#f5b301;
+}
+
+.search-form input{
+  border-radius: 10px;
+  width: 600px;
+  margin-bottom: 20px;
+  border-color: #222;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-page {
+    text-align: center;
+    padding: 40px;
+}
+
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.search-card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.search-card h2 {
+    margin-bottom: 10px;
+}
+
+.search-card p {
+    margin-bottom: 15px;
+}
+
+.search-card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.search-card form {
+    margin-top: 10px;
+}
+
+.del-btn:hover{
+  background-color: #f5b301;
+}
+.popcorn-animation {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    width: 150px;
+    height: 180px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.popcorn-animation img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 130px;
+}
+
+/* Flying popcorn */
+.popcorn-piece {
+    position: absolute;
+    font-size: 28px;
+    opacity: 0;
+}
+
+.popcorn-one {
+    bottom: 100px;
+    right: 60px;
+    animation: flyOne 3s infinite ease-out;
+}
+
+.popcorn-two {
+    bottom: 100px;
+    right: 50px;
+    animation: flyTwo 3s infinite ease-out 0.7s;
+}
+
+.popcorn-three {
+    bottom: 100px;
+    right: 70px;
+    animation: flyThree 3s infinite ease-out 1.4s;
+}
+
+.popcorn-four {
+    bottom: 100px;
+    right: 40px;
+    animation: flyFour 3s infinite ease-out 2.1s;
+}
+/* Floating popcorn */
+
+.floating-popcorn {
+    position: fixed;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.floating-popcorn img {
+    width: 180px;
+    height: auto;
+}
+
+/* Left popcorn */
+
+.popcorn-left {
+    left: 30px;
+    top: 25%;
+    animation: floatLeft 4s ease-in-out infinite;
+}
+
+/* Right popcorn */
+
+.popcorn-right {
+    right: 30px;
+    bottom: 20%;
+    animation: floatRight 5s ease-in-out infinite;
+}
+
+
+@keyframes floatLeft {
+
+    0% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(8deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+}
+
+
+@keyframes floatRight {
+
+    0% {
+        transform: translateY(0) rotate(8deg);
+    }
+
+    50% {
+        transform: translateY(30px) rotate(-8deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(8deg);
+    }
+
+}
+
+@keyframes flyOne {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-80px, -130px) rotate(180deg);
+    }
+}
+
+@keyframes flyTwo {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(20px, -160px) rotate(270deg);
+    }
+}
+
+@keyframes flyThree {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-120px, -100px) rotate(360deg);
+    }
+}
+
+@keyframes flyFour {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(70px, -120px) rotate(180deg);
+    }
+}
+
+@keyframes popcornFly {
+
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5) rotate(0deg);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(
+            var(--x, -80px),
+            -120px
+        ) scale(1) rotate(180deg);
+    }
+}
 
 @keyframes fadeIn {
   from {

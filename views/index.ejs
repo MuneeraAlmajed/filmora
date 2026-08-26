@@ -12,6 +12,14 @@
 
   <body>
 
+    <div class="popcorn-animation">
+    <div class="popcorn-piece popcorn-one">🎥</div>
+    <div class="popcorn-piece popcorn-two">🍿</div>
+    <div class="popcorn-piece popcorn-three">🎞️</div>
+    <div class="popcorn-piece popcorn-four">📀</div>
+
+    <img src="/images/popcorn-bucket.png" alt="Popcorn bucket">
+</div>
     <%- include('./partials/_navbar.ejs') %>
 
     <% if(user){ %>
@@ -56,7 +64,7 @@
         required
         />
 
-    <button type="submit">Search</button>
+    <button type="submit" class="search-btn"> Search 🔍</button>
 </form>
 
         <div class="movie-container">

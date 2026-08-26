@@ -8,7 +8,9 @@
     <title>Search Results</title>
 </head>
 
-<body>
+<body class="search-page">
+
+    <a href="/" class="back-home-btn">Back to Home</a>
 
     <h1>Search Results</h1>
 
@@ -16,56 +18,60 @@
 
     <% if (movies.length > 0) { %>
 
-        <% movies.forEach(movie => { %>
+        <div class="search-results">
 
-            <div>
-                <h2><%= movie.Title %></h2>
+            <% movies.forEach(movie => { %>
 
-                <p><%= movie.Year %></p>
+                <div class="search-card">
 
-                <% if (movie.Poster !== 'N/A') { %>
-                    <img
-                        src="<%= movie.Poster %>"
-                        alt="<%= movie.Title %>"
-                        width="200"
-                    >
-                <% } %>
+                    <h2><%= movie.Title %></h2>
 
-                <form action="/movies/add" method="POST">
+                    <p><%= movie.Year %></p>
 
-                    <input
-                        type="hidden"
-                        name="imdbID"
-                        value="<%= movie.imdbID %>"
-                    >
+                    <% if (movie.Poster !== 'N/A') { %>
+                        <img
+                            src="<%= movie.Poster %>"
+                            alt="<%= movie.Title %>"
+                        >
+                    <% } %>
 
-                    <input
-                        type="hidden"
-                        name="title"
-                        value="<%= movie.Title %>"
-                    >
+                    <form action="/movies/add" method="POST">
 
-                    <input
-                        type="hidden"
-                        name="image"
-                        value="<%= movie.Poster %>"
-                    >
+                        <input
+                            type="hidden"
+                            name="imdbID"
+                            value="<%= movie.imdbID %>"
+                        >
 
-                    <button type="submit">Add to My Movies</button>
+                        <input
+                            type="hidden"
+                            name="title"
+                            value="<%= movie.Title %>"
+                        >
 
-                </form>
+                        <input
+                            type="hidden"
+                            name="image"
+                            value="<%= movie.Poster %>"
+                        >
 
-            </div>
+                        <button type="submit" class="back-home-btn">
+                            Add to My Movies
+                        </button>
 
-        <% }) %>
+                    </form>
+
+                </div>
+
+            <% }) %>
+
+        </div>
 
     <% } else { %>
 
         <p>No movies found.</p>
 
     <% } %>
-
-    <a href="/">Back to Home</a>
 
 </body>
 </html>

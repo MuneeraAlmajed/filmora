@@ -16,7 +16,12 @@
 
     <h1>My Movies</h1>
 
-    <form action="/search" method="GET">
+    <div class="movie-page-actions">
+      <a href="/" class="back-home-btn">Back to Home</a>
+      <a href="/movies/new" class="add-movie">Add Movie</a>
+    </div>
+
+    <form action="/search" method="GET" class="search-form">
     <input
         type="text"
         name="search"
@@ -24,7 +29,7 @@
         required
     >
 
-    <button type="submit">Search</button>
+    <button type="submit" class="search-btn">Search 🔍</button>
 
     </form>
 
@@ -48,15 +53,6 @@
     <% }) %>
 
 <% } %>
-
-
-
-    <div class="movie-page-actions">
-      <a href="/" class="back-home-btn">Back to Home</a>
-      <a href="/movies/new" class="add-movie">Add Movie</a>
-    </div>
-
-
 
     <div class="movies-grid">
 

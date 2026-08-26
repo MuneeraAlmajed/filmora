@@ -9,12 +9,20 @@
   </head>
   <body>
 
+    <div class="floating-popcorn popcorn-left">
+    <img src="/images/popcorn.png" alt="Popcorn">
+</div>
+
+<div class="floating-popcorn popcorn-right">
+    <img src="/images/popcorn.png" alt="Popcorn">
+</div>
+
     <main class="auth-page">
 
       <div class="auth-card">
     
     <h1>Sign in</h1>
-    <a href="/views/index.ejs" class="back-home">Back to Home</a>
+    <a href="/views/index.ejs" class="back-home-btn">Back to Home</a>
     
     <form action="/auth/sign-in" method="POST">
       
@@ -23,8 +31,6 @@
 
       <label for="password">Password:</label>
       <input type="password" name="password" id="password" />
-
-      <a href="/auth/sign-up">Don't have an account yet?</a>
 
       <button type="submit" class="auth-button">Sign in</button>
 
