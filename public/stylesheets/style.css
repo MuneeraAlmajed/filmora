@@ -231,8 +231,6 @@ body {
     border-radius: 8px;
 }
 
-/* Movie Show Page */
-
 .movie-show {
     width: 80%;
     max-width: 900px;
@@ -286,7 +284,6 @@ body {
     cursor: pointer;
     font-size: 15px;
 }
-
 
 .rating {
     margin-top: 15px;

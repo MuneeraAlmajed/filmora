@@ -10,7 +10,6 @@ router.post('/sign-up', authCtrl.register);
 router.get('/sign-in', authCtrl.signin);
 router.post('/sign-in', authCtrl.login);
 
-// PRIVATE ROUTES
 router.get('/sign-out', isSignedIn, authCtrl.signout);
 
 module.exports = router;

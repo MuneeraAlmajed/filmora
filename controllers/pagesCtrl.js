@@ -52,7 +52,6 @@ const averageRating = ratedMovies.length
     }
 
   } catch (err) {
-    console.log(err);
     res.redirect('/');
   }
 };

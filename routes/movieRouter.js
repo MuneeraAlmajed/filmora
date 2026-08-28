@@ -4,9 +4,6 @@ const router = express.Router();
 
 const movieCtrl = require("../controllers/movieCtrl");
 
-
-//Movies
-
 router.get("/",movieCtrl.index);
 router.get("/search",movieCtrl.searchMovies);
 router.post("/add",movieCtrl.addNewMovie);

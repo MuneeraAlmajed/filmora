@@ -48,9 +48,7 @@ const userSchema = new mongoose.Schema({
   movies: [movieSchema],
 
 });
-// initial the model
 
 const User = mongoose.model('User', userSchema);
 
-// export it
 module.exports = User;
